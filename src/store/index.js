@@ -1,5 +1,5 @@
 import {createStore, combineReducers} from 'redux';
-import movielistReducer from './reducers/moveilistReducer';
+import movielistReducer from './reducers/movielistReducer';
 
 const reducer = combineReducers({movies: movielistReducer});
 
