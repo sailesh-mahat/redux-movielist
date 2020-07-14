@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {connect} from 'react-redux';
 import updateMovies from './store/actions/updateMovies';
+import fetchUsers from './store/actions/fetchUsers'
 
 function App(props) {
   return (
@@ -12,21 +13,25 @@ function App(props) {
       style={{color:'green'}}
       >YOUR CURRENTMOVIE IS: </span>{props.movies.name}
       <br/>
-      <button onClick={props.updateMovies}>SELECT NEW MOVIE</button>
+      <p><button onClick={props.updateMovies}>SELECT NEW MOVIE</button></p>
+      <br/>
+      <button onClick={props.fetchUsers}>FETCH USERS</button>
     </div>
   );
 };
 
 const MapStateToProps = (state) => {
   return {
-    movies: state.movies
+    movies: state.movies,
+    users: state.users
   };
 
 };
 
 const MapDispatchToProps = (dispatch) => {
   return {
-    updateMovies: ()=> dispatch(updateMovies)
+    updateMovies: () => dispatch(updateMovies),
+    fetchUsers: () => dispatch(fetchUsers)
   }
 };
 
